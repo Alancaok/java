@@ -1,0 +1,38 @@
+输入一个链表，按链表从尾到头的顺序返回一个ArrayList
+
+/**
+*    public class ListNode {
+*        int val;
+*        ListNode next = null;
+*
+*        ListNode(int val) {
+*            this.val = val;
+*        }
+*    }
+*
+*/
+import java.util.ArrayList;
+import java.util.*;
+public class Solution {
+    public ArrayList<Integer> printListFromTailToHead(ListNode listNode) {
+       
+        Stack list1=new Stack();
+        ArrayList<Integer> list2=new ArrayList<>();
+        int a=0;
+        if(listNode==null)
+        {
+            return list2;
+        }
+        while(listNode!=null)
+        {
+            list1.push(listNode.val);
+            listNode=listNode.next;
+        }
+        while(!list1.isEmpty())
+        {                
+            a=(Integer)list1.pop();
+            list2.add(a);
+        }
+        return list2;
+    }
+}
