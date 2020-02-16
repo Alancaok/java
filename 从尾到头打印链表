@@ -18,11 +18,7 @@ public class Solution {
        
         Stack list1=new Stack();
         ArrayList<Integer> list2=new ArrayList<>();
-        int a=0;
-        if(listNode==null)
-        {
-            return list2;
-        }
+        int a=0;        
         while(listNode!=null)
         {
             list1.push(listNode.val);
