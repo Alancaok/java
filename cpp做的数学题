@@ -3,8 +3,7 @@
      3  5
    11  9   7
  13  15  17  19
-*/
-求第2019项的行和列
+求项为2019时的行和列
 
 #include<iostream>
 using namespace std;
