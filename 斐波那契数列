@@ -3,6 +3,7 @@ f(n)=0,n=0
 f(n)=1,n=1
 f(n)=f(n-1)+f(n-2),n>=2
 */
+//第一种，效率太低
 public class Solution {
     public int Fibonacci(int n) {
         if(n==0)
@@ -14,3 +15,23 @@ public class Solution {
         }
         
     }
+//第二种
+public class Solution {
+    public int Fibonacci(int n) {
+        int a=0,b=1,c=0;
+        if(n<0){
+            return 0;
+        }else if(n==0||n==1){
+            return n;
+        }else{
+            for (int i=2;i<=n;i++){
+            /*a是f(0),b是f(1),c=a+b
+            a的值改成b,b的值改成c*/
+                c=a+b;
+                a=b;
+                b=c;
+            }
+            return c;
+        }
+    }
+}
