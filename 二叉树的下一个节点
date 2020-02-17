@@ -17,6 +17,14 @@ public class Solution {
     {
         if(pNode==null)
             return null;
+        /*这里需要注意的是pNode.next是pNode结点的父结点      
+        1、如果有右子树，那么下一个结点就是右子树最左边的节点。  
+        2、如果没有右子树，分两种情况
+        情况一，该节点是该节点父结点的左子树，那么下一个节点就是父结点
+        情况二，该节点是该节点父结点的右子树，那么继续向上在找，
+        直到找到一个节点且该节点为该节点父结点的左子树，那么下一个节点就是该节点的父结点
+        */
+
         if(pNode.right!=null)
         {
             pNode=pNode.right;
@@ -36,5 +44,8 @@ public class Solution {
             pNode=pNode.next;
         }
         return null;
+        /*
+        都不符合，则返回null
+        */
     }
 }
