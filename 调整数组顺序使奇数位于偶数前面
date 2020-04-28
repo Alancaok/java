@@ -1,0 +1,25 @@
+public class Solution {
+    public void reOrderArray(int [] array) {
+        int[] array1=new int[array.length];
+        int index=0;
+        for(int j:array)
+        {
+            if(j%2!=0)
+            {
+                array1[index++]=j;
+            }
+        }
+ 
+        for(int j:array)
+        {
+            if(j%2==0)
+            {
+                array1[index++]=j;
+            }
+        }
+        for (int j=0;j<array1.length;j++)
+        {
+            array[j]=array1[j];
+        }
+        }
+}
