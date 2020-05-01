@@ -1,0 +1,52 @@
+import java.util.Stack;
+
+
+public class Solution {
+
+    private static Stack<Integer> stack = new Stack<Integer>();
+    private static Integer minElement = Integer.MAX_VALUE;
+
+    public void push(int node) {
+        if(stack.isEmpty())
+        {
+            minElement=node;
+            stack.push(node);
+        }
+        else
+        {
+            if(node<minElement)
+            {
+                stack.push(minElement);
+                minElement=node;
+            }
+        }
+        stack.push(node);
+    }
+
+    public void pop() {
+        if(stack.size()==0)
+            return;
+        if(stack.size()>1)
+        {
+            if(stack.peek()==minElement)
+            {
+                stack.pop();
+                minElement=stack.peek();
+            }
+            stack.pop();
+        }
+        else
+        {
+            minElement=Integer.MAX_VALUE;
+            stack.pop();
+        }
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int min() {
+        return minElement;
+    }
+}
