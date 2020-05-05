@@ -1,0 +1,30 @@
+import java.util.HashMap;
+/*
+public class RandomListNode {
+    int label;
+    RandomListNode next = null;
+    RandomListNode random = null;
+
+    RandomListNode(int label) {
+        this.label = label;
+    }
+}
+*/
+public class Solution {
+    public RandomListNode Clone(RandomListNode pHead)
+    {
+        RandomListNode cur=pHead;
+        HashMap<RandomListNode,RandomListNode> map=new HashMap<>();
+        while(cur!=null)
+        {
+            map.put(cur,new RandomListNode(cur.label));
+            cur=cur.next;
+        }
+        for(RandomListNode k:map.keySet())
+        {
+            map.get(k).next=map.get(k.next);
+            map.get(k).random=map.get(k.random);
+        }
+        return map.get(pHead);
+    }
+}
