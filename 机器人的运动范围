@@ -1,0 +1,38 @@
+public class Solution {
+    int res=0;
+    public int movingCount(int threshold, int rows, int cols)
+    {
+        boolean[][] vis=new boolean[rows][cols];
+        
+        solve(0,0,threshold,rows,cols,vis);
+        return res;
+    }
+    private void solve(int m,int n,int threshold, int rows, int cols,boolean[][] vis)
+    {
+        if(m<0||n<0||m>=rows||n>=cols||vis[m][n]||(cal(m,n)>threshold))
+            return;
+        vis[m][n]=true;
+        res++;
+        
+        solve(m+1,n,threshold,rows,cols,vis);
+        solve(m,n+1,threshold,rows,cols,vis);
+        solve(m-1,n,threshold,rows,cols,vis);
+        solve(m,n-1,threshold,rows,cols,vis);
+        
+    }
+    private int cal(int x,int y)
+    {
+        int sum=0;
+        while(x!=0)
+        {
+            sum+=x%10;
+            x=x/10;
+        }
+        while(y!=0)
+        {
+            sum+=y%10;
+            y=y/10;
+        }
+        return sum;
+    }
+}
